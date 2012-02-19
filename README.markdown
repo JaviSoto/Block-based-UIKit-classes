@@ -12,7 +12,7 @@ You also have some + show methods to be able to achieve the whole functionality 
 ```objective-c
 #import "JSBlocksAlertView.h"
 [JSBlocksAlertView showAlertViewWithTitle:@"title" message:@"message" dismissedCallback:^(JSBlocksAlertView *alertView, int buttonIndex) {
-	// callback login
+	// callback logic
 } cancelButtonTitle:@"cancel" otherButtonTitles: nil];
 ```
 
