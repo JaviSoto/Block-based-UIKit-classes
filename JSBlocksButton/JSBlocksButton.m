@@ -26,7 +26,7 @@
 
 + (id)buttonWithType:(UIButtonType)buttonType tapCallback:(JSBlocksButtonCallback)callback
 {
-    BlocksButton *button = [super buttonWithType:buttonType];
+    JSBlocksButton *button = [self buttonWithType:buttonType];
 	button.callback = callback;
 	
     [button addTarget:button action:@selector(buttonTapped) forControlEvents:UIControlEventTouchUpInside];
@@ -36,7 +36,7 @@
 
 - (id)initWithFrame:(CGRect)frame tapCallback:(JSBlocksButtonCallback)callback
 {
-    if ((self = [super initWithFrame:frame]))
+    if ((self = [self initWithFrame:frame]))
     {
 		self.callback = callback;
         [self addTarget:self action:@selector(buttonTapped) forControlEvents:UIControlEventTouchUpInside];
