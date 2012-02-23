@@ -37,4 +37,12 @@ NS_REQUIRES_NIL_TERMINATION;
             otherButtonTitles:(NSString *)otherButtonTitles, ... 
 NS_REQUIRES_NIL_TERMINATION;
 
++ (void)showActionSheetFromTabBar:(UITabBar *)tabbar
+                    withTitle:(NSString *)title
+            dismissedCallback:(JSBlocksActionSheetDismissedCallback)callback
+            cancelButtonTitle:(NSString *)cancelButtonTitle
+       destructiveButtonTitle:(NSString *)destructiveButtonTitle
+            otherButtonTitles:(NSString *)otherButtonTitles, ... 
+NS_REQUIRES_NIL_TERMINATION;
+
 @end

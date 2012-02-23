@@ -75,6 +75,31 @@
     }
 }
 
++ (void)showActionSheetFromTabBar:(UITabBar *)tabbar withTitle:(NSString *)title dismissedCallback:(JSBlocksActionSheetDismissedCallback)callback cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... 
+{
+    JSBlocksActionSheet *actionSheet = [[self alloc] initWithTitle:title dismissedCallback:callback cancelButtonTitle:nil destructiveButtonTitle:destructiveButtonTitle otherButtonTitles:nil];
+    
+    if (actionSheet)
+    {
+        va_list args;
+        va_start(args, otherButtonTitles);
+        for (NSString *buttonTitle = otherButtonTitles; buttonTitle != nil; buttonTitle = va_arg(args, NSString *))
+        {
+            [actionSheet addButtonWithTitle:buttonTitle];
+        }
+        
+        va_end(args);        
+        
+        if (cancelButtonTitle)
+        {
+            actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:cancelButtonTitle];
+        }
+        
+        [actionSheet showFromTabBar:tabbar];
+        [actionSheet release];        
+    }
+}
+
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (self.callback)
