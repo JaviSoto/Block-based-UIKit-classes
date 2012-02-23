@@ -34,7 +34,7 @@
     return self;
 }
 
-- (id)initWithBarButtonSystemItem:(UIBarButtonSystemItem)systemItem tapCallback:(JSBlocksBarButtonItemCallback)_callback
+- (id)initWithBarButtonSystemItem:(UIBarButtonSystemItem)systemItem tapCallback:(JSBlocksBarButtonItemCallback)callback
 {
     if ((self = [super initWithBarButtonSystemItem:systemItem target:self action:@selector(buttonTapped)]))
     {
