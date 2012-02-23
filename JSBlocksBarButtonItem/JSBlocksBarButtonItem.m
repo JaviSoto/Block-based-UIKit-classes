@@ -43,6 +43,33 @@
     
     return self;
 }
+
+- (id)initWithImage:(UIImage *)image tapCallback:(JSBlocksBarButtonItemCallback)callback
+{
+    if ((self = [super initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(buttonTapped)]))
+    {
+		self.callback = callback;
+    }
+    
+    return self;
+}
+
+- (id)initWithCustomImage:(UIImage *)image tapCallback:(JSBlocksBarButtonItemCallback)callback
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [button setImage:image forState:UIControlStateNormal];
+    button.frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
+    
+    if ((self = [super initWithCustomView:button]))
+    {
+		self.callback = callback;
+    }
+    
+    [button addTarget:self action:@selector(buttonTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    return self;
+}
          
 - (void)buttonTapped
 {

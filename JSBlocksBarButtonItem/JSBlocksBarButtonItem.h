@@ -18,7 +18,7 @@
 
 @class JSBlocksBarButtonItem;
 
-typedef void (^BlocksBarButtonItemCallback)(JSBlocksBarButtonItem *buttonItem);
+typedef void (^JSBlocksBarButtonItemCallback)(JSBlocksBarButtonItem *buttonItem);
 
 @interface JSBlocksBarButtonItem : UIBarButtonItem
 
